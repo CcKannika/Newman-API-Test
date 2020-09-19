@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "bdf6536f-ee09-4851-8ab0-f96538171814",
+		"name": "Test Basic Authentication API Newman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://httpbin.org/basic-auth/{{user}}/{{pass}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5ab7886-c357-473f-9c7c-2f34146c2455",
+						"exec": [
+							"pm.globals.set(\"user\", \"user\");\r",
+							"pm.globals.set(\"pass\", \"pass\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pass}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://httpbin.org/basic-auth/{{user}}/{{pass}}",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"basic-auth",
+						"{{user}}",
+						"{{pass}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
